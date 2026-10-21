@@ -1,0 +1,85 @@
+@import 'tailwindcss';
+
+/* Paleta WillData: cámbiala aquí y se actualiza en todo el sitio */
+@theme {
+  --color-hielo: #caf0f8;
+  --color-cielo: #90e0ef;
+  --color-turquesa: #00b4d8;
+  --color-oceano: #0077b6;
+  --color-marino: #03045e;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-titulo: 'Space Grotesk', 'Inter', sans-serif;
+
+  --animate-aparecer: aparecer 0.7s ease-out both;
+  --animate-flotar: flotar 6s ease-in-out infinite;
+  --animate-crecer: crecer 1s ease-out both;
+
+  @keyframes crecer {
+    from {
+      transform: scaleY(0);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes aparecer {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes flotar {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white font-sans text-marino antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-titulo tracking-tight;
+  }
+
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-turquesa;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
