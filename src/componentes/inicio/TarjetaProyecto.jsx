@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import Etiqueta from '../ui/Etiqueta.jsx';
 import { tiposHerramienta } from '../../datos/proyectos.js';
 
+const rutaBase = import.meta.env.BASE_URL;
+
 const fondosMiniatura = {
   pbi: 'from-marino to-oceano',
   xls: 'from-oceano to-turquesa',
@@ -51,6 +53,7 @@ export default function TarjetaProyecto({ proyecto }) {
     resumen,
     etiquetas,
     alturasMiniatura,
+    portada,
   } = proyecto;
   const alturaMaxima = Math.max(...alturasMiniatura);
 
@@ -59,28 +62,39 @@ export default function TarjetaProyecto({ proyecto }) {
       to={`/proyecto/${slug}`}
       className="group flex flex-col overflow-hidden rounded-3xl border border-marino/10 bg-white transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-marino/15"
     >
-      <div
-        role={enDesarrollo ? 'img' : undefined}
-        aria-label={enDesarrollo ? 'Proyecto en desarrollo' : undefined}
-        aria-hidden={enDesarrollo ? undefined : 'true'}
-        className={`flex h-48 items-end gap-2 bg-gradient-to-br p-6 ${fondosMiniatura[herramienta]}`}
-      >
-        {enDesarrollo ? (
-          <div className="h-full w-full">
-            <MiniaturaEnDesarrollo />
-          </div>
-        ) : (
-          alturasMiniatura.map((altura, indice) => (
-            <i
-              key={indice}
-              style={{ height: `${altura}%` }}
-              className={`flex-1 origin-bottom rounded-t transition-transform duration-500 group-hover:scale-y-110 ${
-                altura === alturaMaxima ? 'bg-cielo' : 'bg-white/25'
-              }`}
-            />
-          ))
-        )}
-      </div>
+      {portada ? (
+        <div className="h-48 overflow-hidden bg-oceano">
+          <img
+            src={`${rutaBase}${portada}`}
+            alt={`Portada de ${titulo}`}
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+      ) : (
+        <div
+          role={enDesarrollo ? 'img' : undefined}
+          aria-label={enDesarrollo ? 'Proyecto en desarrollo' : undefined}
+          aria-hidden={enDesarrollo ? undefined : 'true'}
+          className={`flex h-48 items-end gap-2 bg-gradient-to-br p-6 ${fondosMiniatura[herramienta]}`}
+        >
+          {enDesarrollo ? (
+            <div className="h-full w-full">
+              <MiniaturaEnDesarrollo />
+            </div>
+          ) : (
+            alturasMiniatura.map((altura, indice) => (
+              <i
+                key={indice}
+                style={{ height: `${altura}%` }}
+                className={`flex-1 origin-bottom rounded-t transition-transform duration-500 group-hover:scale-y-110 ${
+                  altura === alturaMaxima ? 'bg-cielo' : 'bg-white/25'
+                }`}
+              />
+            ))
+          )}
+        </div>
+      )}
 
       <div className="flex flex-1 flex-col gap-3 p-6">
         <div className="flex flex-wrap gap-1.5">

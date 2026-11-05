@@ -7,6 +7,10 @@
 //    y pega aquí el enlace (solo el enlace, no todo el código).
 //  · Excel → sube una captura a public/img/ (ej: dashboard-3.png) y escribe 'img/dashboard-3.png'.
 //
+// capturas (opcional): lista de imágenes en public/img/ que se muestran en un slider
+// en lugar de urlDashboard. tituloVisor cambia el título de esa sección.
+// portada (opcional): imagen en public/img/ para la tarjeta del inicio.
+//
 // enlacesDescarga (Google Drive):
 //  1. Sube el archivo a Google Drive.
 //  2. Clic derecho > Compartir > Acceso general: "Cualquier persona con el enlace" > Copiar enlace.
@@ -39,12 +43,15 @@ export const listaProyectos = [
     descripcion:
       'Herramienta en Excel con macros VBA para registrar proveedores, analizar sus datos y automatizar las tareas repetitivas de su gestión.',
     etiquetas: ['VBA', 'Análisis de datos', 'Automatización'],
-    detalles: {
-      herramientasUsadas: 'Excel · VBA',
-      fuenteDatos: 'Por definir',
-      periodo: 'En desarrollo',
-    },
+    tituloVisor: { antetitulo: 'Mockup', titulo: 'Aplicación VBA' },
+    portada: 'img/gestor-proveedores/portada.png',
     urlDashboard: '',
+    capturas: [
+      { url: 'img/gestor-proveedores/dashboard.png', texto: 'Dashboard' },
+      { url: 'img/gestor-proveedores/nuevo-proveedor.png', texto: 'Nuevo proveedor' },
+      { url: 'img/gestor-proveedores/base-de-datos.png', texto: 'Base de datos' },
+      { url: 'img/gestor-proveedores/alertas.png', texto: 'Alertas' },
+    ],
     enlacesDescarga: [{ texto: 'Descargar archivo Excel', url: 'PEGA_AQUI_EL_ENLACE_DEL_EXCEL' }],
     hallazgos: hallazgosPlantilla,
     alturasMiniatura: [30, 55, 40, 85, 62],
@@ -72,22 +79,22 @@ export const listaProyectos = [
     alturasMiniatura: [45, 75, 58, 35, 50],
   },
   {
-    slug: 'app-de-inventario',
-    herramienta: 'py',
+    slug: 'visualizacion-de-datos-en-excel',
+    herramienta: 'xls',
     enDesarrollo: true,
-    titulo: 'App de inventario',
+    titulo: 'Visualización de datos en Excel',
     resumen:
-      'Aplicación de escritorio en Python para controlar inventario, con interfaz en Tkinter y Pywebview, apoyada en IA y Excel.',
+      'Dashboard en Excel con tablas dinámicas y gráficos para convertir los datos en indicadores fáciles de leer.',
     descripcion:
-      'Aplicación de escritorio en Python para controlar el inventario, con interfaz construida en Tkinter y Pywebview, apoyo de inteligencia artificial y conexión con Excel.',
-    etiquetas: ['Tkinter', 'Pywebview', 'IA', 'Excel'],
+      'Dashboard en Excel que organiza los datos con tablas dinámicas y los presenta en gráficos e indicadores clave para entender la información de un vistazo y apoyar la toma de decisiones.',
+    etiquetas: ['Dashboard', 'Tablas dinámicas', 'Gráficos'],
     detalles: {
-      herramientasUsadas: 'Python · Tkinter · Pywebview · IA · Excel',
+      herramientasUsadas: 'Excel · Tablas dinámicas · Gráficos',
       fuenteDatos: 'Por definir',
       periodo: 'En desarrollo',
     },
     urlDashboard: '',
-    enlacesDescarga: [{ texto: 'Descargar código', url: 'PEGA_AQUI_EL_ENLACE_DEL_CODIGO' }],
+    enlacesDescarga: [{ texto: 'Descargar archivo Excel', url: 'PEGA_AQUI_EL_ENLACE_DEL_EXCEL' }],
     hallazgos: hallazgosPlantilla,
     alturasMiniatura: [38, 62, 78, 50, 44],
   },

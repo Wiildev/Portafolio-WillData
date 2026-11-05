@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import Contenedor from '../componentes/diseno/Contenedor.jsx';
 import Boton from '../componentes/ui/Boton.jsx';
 import Etiqueta from '../componentes/ui/Etiqueta.jsx';
+import SliderCapturas from '../componentes/ui/SliderCapturas.jsx';
 import TituloSeccion from '../componentes/ui/TituloSeccion.jsx';
 import NoEncontrado from './NoEncontrado.jsx';
 import { perfil } from '../datos/perfil.js';
@@ -17,7 +18,9 @@ const rutaBase = import.meta.env.BASE_URL;
 
 function VisorDashboard({ proyecto }) {
   const { tipoVisor, nombre: nombreHerramienta } = tiposHerramienta[proyecto.herramienta];
-  const { urlDashboard, titulo } = proyecto;
+  const { urlDashboard, titulo, capturas } = proyecto;
+
+  if (capturas?.length) return <SliderCapturas capturas={capturas} titulo={titulo} />;
 
   if (!urlDashboard) {
     return (
@@ -74,6 +77,7 @@ export default function DetalleProyecto() {
     etiquetas,
     detalles,
     hallazgos,
+    tituloVisor = { antetitulo: 'Panel de control', titulo: 'Dashboard' },
   } = proyecto;
   const enlacesDisponibles = [
     ...(proyecto.urlPantallaCompleta
@@ -87,11 +91,13 @@ export default function DetalleProyecto() {
       : []),
     ...proyecto.enlacesDescarga.map((enlace) => ({ ...enlace, texto: `${enlace.texto} ↓` })),
   ];
-  const listaDetalles = [
-    { etiqueta: 'Herramientas', valor: detalles.herramientasUsadas },
-    { etiqueta: 'Fuente de datos', valor: detalles.fuenteDatos },
-    { etiqueta: 'Periodo', valor: detalles.periodo },
-  ];
+  const listaDetalles = detalles
+    ? [
+        { etiqueta: 'Herramientas', valor: detalles.herramientasUsadas },
+        { etiqueta: 'Fuente de datos', valor: detalles.fuenteDatos },
+        { etiqueta: 'Periodo', valor: detalles.periodo },
+      ]
+    : [];
 
   return (
     <article>
@@ -107,21 +113,23 @@ export default function DetalleProyecto() {
           <h1 className="mt-5 max-w-3xl text-4xl leading-tight font-bold sm:text-5xl">{titulo}</h1>
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-marino/70">{descripcion}</p>
 
-          <dl className="mt-8 grid gap-3 sm:grid-cols-3">
-            {listaDetalles.map(({ etiqueta, valor }) => (
-              <div key={etiqueta} className="rounded-2xl border border-marino/10 bg-white p-4">
-                <dt className="text-xs font-semibold tracking-wide text-turquesa uppercase">
-                  {etiqueta}
-                </dt>
-                <dd className="mt-1 font-semibold">{valor}</dd>
-              </div>
-            ))}
-          </dl>
+          {listaDetalles.length > 0 && (
+            <dl className="mt-8 grid gap-3 sm:grid-cols-3">
+              {listaDetalles.map(({ etiqueta, valor }) => (
+                <div key={etiqueta} className="rounded-2xl border border-marino/10 bg-white p-4">
+                  <dt className="text-xs font-semibold tracking-wide text-turquesa uppercase">
+                    {etiqueta}
+                  </dt>
+                  <dd className="mt-1 font-semibold">{valor}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
         </Contenedor>
       </header>
 
       <Contenedor como="section" className="py-12">
-        <TituloSeccion antetitulo="Panel de control" titulo="Dashboard" />
+        <TituloSeccion antetitulo={tituloVisor.antetitulo} titulo={tituloVisor.titulo} />
         <div className="mt-6">
           <VisorDashboard proyecto={proyecto} />
         </div>
