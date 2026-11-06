@@ -20,30 +20,15 @@ export default function SeccionGraficos() {
         />
 
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          <TarjetaGrafico
-            titulo="Uso de herramientas"
-            subtitulo="% del tiempo de análisis"
-            columnasTabla={['Herramienta', '%']}
-            filasTabla={datosTarta.map(({ nombre, valor }) => [nombre, `${valor}%`])}
-          >
+          <TarjetaGrafico titulo="Uso de herramientas" subtitulo="% del tiempo de análisis">
             <GraficoTarta datos={datosTarta} />
           </TarjetaGrafico>
 
-          <TarjetaGrafico
-            titulo="Horas de práctica"
-            subtitulo="Acumuladas por mes"
-            columnasTabla={['Mes', 'Horas']}
-            filasTabla={datosLinea.map(({ mes, horas }) => [mes, horas])}
-          >
+          <TarjetaGrafico titulo="Horas de práctica" subtitulo="Acumuladas por mes">
             <GraficoLinea datos={datosLinea} />
           </TarjetaGrafico>
 
-          <TarjetaGrafico
-            titulo="Nivel por habilidad"
-            subtitulo="Autoevaluación de 0 a 100"
-            columnasTabla={['Habilidad', 'Nivel']}
-            filasTabla={datosBarras.map(({ habilidad, nivel }) => [habilidad, nivel])}
-          >
+          <TarjetaGrafico titulo="Nivel por habilidad" subtitulo="Autoevaluación de 0 a 100">
             <GraficoBarras datos={datosBarras} />
           </TarjetaGrafico>
         </div>

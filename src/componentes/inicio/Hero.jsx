@@ -44,7 +44,7 @@ export default function Hero() {
 
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-marino/70">
             Analista de datos enfocado en Business Intelligence. Uso Excel, Power BI e inteligencia
-            artificial para encontrar y contar historias a partir de los datos.
+            artificial para encontrar patrones y contar historias a partir de los datos.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">

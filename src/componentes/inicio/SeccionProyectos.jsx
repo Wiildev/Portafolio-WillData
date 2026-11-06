@@ -9,7 +9,6 @@ const opcionesFiltro = [
   { clave: 'pbi', texto: 'Power BI' },
   { clave: 'xls', texto: 'Excel' },
   { clave: 'gs', texto: 'Google Sheets' },
-  { clave: 'py', texto: 'Python' },
 ];
 
 export default function SeccionProyectos() {

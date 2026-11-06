@@ -8,7 +8,6 @@ const fondosMiniatura = {
   pbi: 'from-marino to-oceano',
   xls: 'from-oceano to-turquesa',
   gs: 'from-turquesa to-oceano',
-  py: 'from-marino to-turquesa',
 };
 
 function MiniaturaEnDesarrollo() {

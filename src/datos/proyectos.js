@@ -23,7 +23,6 @@ export const tiposHerramienta = {
   pbi: { nombre: 'Power BI', tipoVisor: 'iframe' },
   xls: { nombre: 'Excel', tipoVisor: 'imagen' },
   gs: { nombre: 'Google Sheets', tipoVisor: 'imagen' },
-  py: { nombre: 'Python', tipoVisor: 'imagen' },
 };
 
 const hallazgosPlantilla = [
@@ -42,6 +41,16 @@ export const listaProyectos = [
       'Herramienta en Excel con macros VBA para registrar, analizar y automatizar la gestión de proveedores.',
     descripcion:
       'Herramienta en Excel con macros VBA para registrar proveedores, analizar sus datos y automatizar las tareas repetitivas de su gestión.',
+    descripcionAmpliada: {
+      titulo: 'Gestor de proveedores – Automatización con VBA',
+      parrafos: [
+        'Este proyecto fue desarrollado en VBA (Visual Basic for Applications), con el apoyo de Claude IA y mis conocimientos en programación mediante macros, con el propósito de automatizar y optimizar el proceso de gestión de proveedores utilizando Microsoft Excel, una herramienta ampliamente utilizada en el entorno empresarial para administrar y organizar información.',
+        'El desarrollo de la aplicación se fundamentó en principios de programación modular y buenas prácticas de desarrollo de software, buscando garantizar un código organizado, fácil de mantener y escalable ante futuras necesidades del sistema.',
+        'La construcción del gestor se llevó a cabo tomando como referencia los requisitos funcionales y no funcionales, definidos previamente para establecer el alcance, el comportamiento y las características que debía cumplir la aplicación.',
+        'En cuanto a su estructura, se implementó el patrón de diseño MVC (Modelo-Vista-Controlador), con el propósito de separar las responsabilidades del sistema: la interfaz de usuario, la lógica de negocio y la gestión de los datos. Esta organización facilita el mantenimiento, la comprensión y la evolución de la aplicación.',
+        'Finalmente, el almacenamiento y la administración de la información se realizan mediante tablas de Excel, que funcionan como fuente de datos del sistema. Estas se encuentran conectadas con los formularios de VBA, desde los cuales se ejecutan las operaciones de registro, consulta y actualización de información, permitiendo almacenar los datos en las tablas y columnas correspondientes.',
+      ],
+    },
     etiquetas: ['VBA', 'Análisis de datos', 'Automatización'],
     tituloVisor: { antetitulo: 'Mockup', titulo: 'Aplicación VBA' },
     portada: 'img/gestor-proveedores/portada.png',

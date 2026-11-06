@@ -74,6 +74,7 @@ export default function DetalleProyecto() {
     enDesarrollo,
     titulo,
     descripcion,
+    descripcionAmpliada,
     etiquetas,
     detalles,
     hallazgos,
@@ -112,6 +113,17 @@ export default function DetalleProyecto() {
           </div>
           <h1 className="mt-5 max-w-3xl text-4xl leading-tight font-bold sm:text-5xl">{titulo}</h1>
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-marino/70">{descripcion}</p>
+
+          {descripcionAmpliada && (
+            <div className="mt-8 max-w-3xl">
+              <h2 className="text-2xl font-bold">{descripcionAmpliada.titulo}</h2>
+              {descripcionAmpliada.parrafos.map((parrafo) => (
+                <p key={parrafo} className="mt-4 leading-relaxed text-marino/70">
+                  {parrafo}
+                </p>
+              ))}
+            </div>
+          )}
 
           {listaDetalles.length > 0 && (
             <dl className="mt-8 grid gap-3 sm:grid-cols-3">

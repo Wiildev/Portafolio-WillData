@@ -25,7 +25,7 @@ export const gruposHabilidades = [
     titulo: 'Excel avanzado',
     listaHabilidades: [
       { nombre: 'Tablas dinámicas' },
-      { nombre: 'BUSCARX' },
+      { nombre: 'BUSCARV' },
       { nombre: 'Formato condicional' },
       { nombre: 'Gráficos' },
     ],
